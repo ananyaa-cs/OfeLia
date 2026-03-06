@@ -22,10 +22,7 @@ export function sendNotification(title: string, body: string, tag?: string) {
     const notification = new Notification(title, {
         body,
         icon: '/icons/icon-192x192.png',
-        badge: '/icons/icon-192x192.png',
         tag: tag || 'ofelia-reminder',
-        renotify: true,
-        requireInteraction: true,
     });
 
     notification.onclick = () => {
