@@ -88,8 +88,13 @@ export async function chatWithOfeLia(
         console.log('OfeLia raw:', raw);
 
         return parseAIResponse(raw);
-    } catch (err) {
+    } catch (err: unknown) {
         console.error('OfeLia AI Error:', err);
+        const msg = err instanceof Error ? err.message : String(err);
+
+        if (msg.includes('429') || msg.includes('quota')) {
+            return { message: "I've hit my daily thinking limit 😴 Try again in a few minutes, or get a new API key from ai.google.dev!", tasks: [] };
+        }
         return { message: "My brain glitched 🫠 Try again?", tasks: [] };
     }
 }
