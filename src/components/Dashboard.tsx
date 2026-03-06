@@ -1,9 +1,10 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { db, Task } from '@/lib/db';
 import { useLiveQuery } from 'dexie-react-hooks';
+import { requestNotificationPermission, startReminderLoop } from '@/lib/notifications';
 import styles from './Dashboard.module.css';
 
 interface DashboardProps {
@@ -14,6 +15,13 @@ interface DashboardProps {
 export default function Dashboard({ userName, onOpenChat }: DashboardProps) {
     const tasks = useLiveQuery(() => db.tasks.orderBy('scheduledTime').toArray()) || [];
     const fileInputRefs = useRef<{ [key: number]: HTMLInputElement | null }>({});
+
+    // Start notifications on mount
+    useEffect(() => {
+        requestNotificationPermission().then((granted) => {
+            if (granted) startReminderLoop();
+        });
+    }, []);
 
     const pendingTasks = tasks.filter(t => t.status !== 'done');
     const doneTasks = tasks.filter(t => t.status === 'done');
