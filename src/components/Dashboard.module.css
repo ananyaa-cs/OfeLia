@@ -1,0 +1,191 @@
+.container {
+    min-height: 100vh;
+    padding: 24px;
+    padding-bottom: 100px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    padding-top: 16px;
+}
+
+.greetingSmall {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.greeting {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text-primary);
+}
+
+.stats {
+    text-align: right;
+}
+
+.statNumber {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.statLabel {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+}
+
+/* ── Tasks ──────────────────────────────────────── */
+.taskSection {
+    margin-bottom: 24px;
+}
+
+.sectionTitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+
+.doneTitle {
+    margin-top: 32px;
+    color: var(--success);
+}
+
+.emptyState {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-muted);
+}
+
+.emptyEmoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+}
+
+.taskCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 10px;
+    transition: all var(--transition-normal);
+}
+
+.taskCard:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+.doneCard {
+    opacity: 0.6;
+    background: var(--success-glow);
+    border-color: rgba(34, 197, 94, 0.15);
+}
+
+.taskInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.taskTime {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.taskText {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-top: 4px;
+    line-height: 1.4;
+}
+
+.doneText {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.taskDuration {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.proofBtn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+}
+
+.proofBtn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    box-shadow: var(--shadow-glow);
+}
+
+.proofThumb {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.hiddenInput {
+    display: none;
+}
+
+/* ── Bottom Bar ─────────────────────────────────── */
+.bottomBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 24px;
+    background: linear-gradient(transparent, var(--bg) 30%);
+    display: flex;
+    justify-content: center;
+}
+
+.designBtn {
+    width: 100%;
+    max-width: 550px;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: var(--accent);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-glow);
+    transition: all var(--transition-normal);
+}
+
+.designBtn:hover {
+    box-shadow: 0 0 40px var(--accent-glow);
+    transform: translateY(-1px);
+}
